@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-export default function App() {
+import TelaInicial from './componentes/TelaInicial';
+import TelaPokemon1 from './componentes/TelaPokemon1';
+import TelaPokemon2 from './componentes/TelaPokemon2';
+import TelaPokemon3 from './componentes/TelaPokemon3';
+
+const Drawer = createDrawerNavigator();
+
+export default function App () {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer >
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component = { TelaInicial } />
+        <Drawer.Screen name="Pokémon 1" component = { TelaPokemon1 } />
+        <Drawer.Screen name="Pokémon 2" component = { TelaPokemon2 } />
+        <Drawer.Screen name="Pokémon 3" component = { TelaPokemon3 } />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
